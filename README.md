@@ -37,7 +37,8 @@ then type '?' and the parameter names seperated by '&'. For example (http://loca
 
 ## Development Instructions
 
-git clone https://gitlab.csc.tntech.edu/csc2310-sp22-students/pgnicholso42/pgnicholso42-dashboard_2.git (clones the project from the repo)
+git clone https://gitlab.csc.tntech.edu/csc2310-sp22-students/pgnicholso42/pgnicholso42-dashboard_2.git (clones the project from the repo).
+If this does not work, try instead: git clone https://github.com/PrestonN44/Spring-2022-TNTech-Dashboard
 
 After cloning, when you open up a class from the src directory you may receive a warning at the top right of IntelliJ recommending you set up
 a project sdk. Click that and select a version of java 11 to develop the project with. This will ensure all methods and classes used work as intended.
