@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="js/drawtable.js"></script>
+    <script type="text/javascript" src="js/fillsubjects.js"></script>
+    <script type="text/javascript" src="js/fillfaculty.js"></script>
+    <script type="text/javascript" src="js/coursesbysubject.js"></script>
+</head>
+<body onload="fillsubjects()">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="http://localhost">
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="index.html">
+                    Home
+                </a>
+
+                <a class="navbar-item" href="coursesbysubject.html">
+                    Courses by subject
+                </a>
+                <a class="navbar-item" href="coursesbyfaculty.html">
+                    Courses by faculty
+                </a>
+                <a class="navbar-item" href="coursebysection.html">
+                    Courses by section
+                </a>
+
+            </div>
+
+        </div>
+    </nav>
+    <div class="container">
+        <label class="label">Schedule Browser</label>
+        <div class="columns">
+            <div class="column field">
+                <label class="label">Enter Semester (i.e., YYYYss where ss = 10, 50, or 80)</label>
+                <div class="control">
+                    <input id="termfield" onchange="drawCoursesBySubject()" onfocusout="fillsubjects()" class="input" type="text" placeholder="YYYYss" value="202210">
+                </div>
+            </div>
+            <div class="column field">
+                <label class="label">Enter Department Code (e.g., CSC)</label>
+                <!--div class="control">
+                    <input id="subjectfield" onchange="drawCoursesBySubject()" class="input" type="text" placeholder="Enter Department Code or Select From Dropdown">
+                </div-->
+                <p class="control has-icons-left">
+                    <span class="select">
+                      <select id="subjectmenu" onchange="drawCoursesBySubject()" onfocusout="drawCoursesBySubject()">
+                      </select>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <!--div class="control">
+            <button class="button is-primary" onclick="drawCoursesBySubject()">Submit</button>
+        </div-->
+    </div>
+    <div class="container">
+        <div class="container">
+            <div class="card">
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p id="cardname" class="title is-4"></p>
+                            <p class="subtitle is-6">@tntech.edu</p>
+                        </div>
+                    </div>
+
+                    <div class="content" id="schTotal">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="table_div"></div>
+    </div>
+</body>
+
+</html>

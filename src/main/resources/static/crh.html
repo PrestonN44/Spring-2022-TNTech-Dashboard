@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Year', 'CSC', 'ME', 'ECE'],
+        ['Fall 2016', 3508, 5370, 3276],
+        ['Fall 2017', 4117, 5059, 3188],
+        ['Fall 2018', 4662, 4767, 3069],
+        ['Fall 2019', 4956, 4496, 3144],
+        ['Fall 2020', 5084, 4434, 3117],
+        ['Fall 2021', 5943, 3943, 2798]
+      ]);
+
+      var options = {
+        title: 'Student Credit Hours',
+        curveType: 'none',
+        legend: { position: 'bottom' },
+        pointSize: 5,
+        pointShape: 'circle',
+        vAxis: { minValue: 0 }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('crh_chart'));
+
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+<div id="crh_chart" style="width: 900px; height: 500px"></div>
+</body>
+
+</html>

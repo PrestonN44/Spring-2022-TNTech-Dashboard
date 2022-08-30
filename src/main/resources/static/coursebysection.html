@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Course By Section</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="js/drawtable.js"></script>
+    <script type="text/javascript" src="js/fillsubjects.js"></script>
+    <script type="text/javascript" src="js/coursebysection.js"></script>
+</head>
+<body onload="fillsubjects()">
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="http://localhost">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="index.html">
+                Home
+            </a>
+
+            <a class="navbar-item" href="coursesbysubject.html">
+                Courses by subject
+            </a>
+            <a class="navbar-item" href="coursesbyfaculty.html">
+                Courses by faculty
+            </a>
+            <a class="navbar-item" href="coursebysection.html">
+                Courses by section
+            </a>
+
+        </div>
+
+    </div>
+</nav>
+<div class="container is-fullhd">
+    <label class="label" >Display Course By Section</label>
+    <div class="columns">
+        <div class="column field">
+            <label class="label">Enter Semester (i.e., YYYYss where ss = 10, 50, or 80)</label>
+            <div class="control">
+                <input id="termfield" onload="fillsubjects()" onchange="drawCoursesBySubject()" onfocusout="fillsubjects()" class="input" type="text" placeholder="YYYYss" value="202210">
+            </div>
+        </div>
+        <div class="column field">
+            <label class="label">Enter Department Code (e.g., CSC)</label>
+            <!--div class="control">
+                <input id="subjectfield" onchange="drawCoursesBySubject()" class="input" type="text" placeholder="Enter Department Code or Select From Dropdown">
+            </div-->
+            <p class="control has-icons-left">
+                <span class="select">
+                  <select id="subjectmenu">
+                  </select>
+                </span>
+            </p>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column field">
+            <label class="label">Course Number</label>
+            <div class="control">
+                <input id="coursefield" class="input" type="text" placeholder="Course Number">
+            </div>
+        </div>
+        <div class="column field">
+            <label class="label">Section Number</label>
+            <div class="control">
+                <input id="sectionfield" class="input" type="text" placeholder="Section Number">
+            </div>
+        </div>
+    </div>
+    <div class="control">
+        <button class="button is-primary" onclick="drawCourseBySection()">Submit</button>
+    </div>
+</div>
+<div class="section">
+    <div class="container" id="table_div"></div>
+</div>
+
+</body>
+
+</html>
